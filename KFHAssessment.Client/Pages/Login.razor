@@ -1,0 +1,62 @@
+@page "/login"
+@inject LoanApiClient Api
+@inject TokenStore Store
+@inject AppAuthStateProvider Auth
+@inject NavigationManager Nav
+
+<div class="auth-wrap">
+    <div class="card form-card">
+        <div class="auth-header">
+            <span class="brand-mark">KFH</span>
+            <h1>Sign In</h1>
+        </div>
+        <EditForm Model="_m" OnValidSubmit="Submit">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label>Username</label>
+                <InputText class="form-control" @bind-Value="_m.Username" />
+                <ValidationMessage For="() => _m.Username" />
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <InputText type="password" class="form-control" @bind-Value="_m.Password" />
+                <ValidationMessage For="() => _m.Password" />
+            </div>
+            @if (_error is not null)
+            {
+                <div class="alert alert-error">@_error</div>
+            }
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" disabled="@_busy">
+                    @(_busy ? "Signing in…" : "Sign In")
+                </button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    readonly LoginRequestDto _m = new();
+    bool _busy;
+    string? _error;
+
+    protected override void OnInitialized()
+    {
+        if (Store.IsAuthenticated) Nav.NavigateTo("");
+    }
+
+    async Task Submit()
+    {
+        _busy = true; _error = null;
+        try
+        {
+            var r = await Api.LoginAsync(_m);
+            if (r is null) { _error = "Invalid username or password."; return; }
+            await Store.SetAsync(r.Token, r.Username, r.Role);
+            Auth.Notify();
+            Nav.NavigateTo("");
+        }
+        catch (Exception ex) { _error = ex.Message; }
+        finally { _busy = false; }
+    }
+}

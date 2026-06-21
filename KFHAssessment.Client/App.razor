@@ -1,0 +1,16 @@
+@using Microsoft.AspNetCore.Components.Authorization
+@using KFHAssessment.Client.Services
+
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData"
+                                DefaultLayout="@typeof(KFHAssessment.Client.Layout.MainLayout)">
+                <NotAuthorized>
+                    <RedirectToLogin />
+                </NotAuthorized>
+            </AuthorizeRouteView>
+        </Found>
+        <NotFound><p>Page not found.</p></NotFound>
+    </Router>
+</CascadingAuthenticationState>

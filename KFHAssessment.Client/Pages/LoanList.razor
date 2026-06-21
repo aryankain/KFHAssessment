@@ -1,0 +1,88 @@
+@page "/"
+@attribute [Authorize]
+@inject LoanApiClient Api
+
+<div class="page-header">
+    <h1>Loan Applications</h1>
+    <a class="btn btn-primary" href="create">+ New</a>
+</div>
+
+@if (_loading)
+{
+    <p class="muted">Loading…</p>
+}
+else if (_error is not null)
+{
+    <div class="alert alert-error">@_error</div>
+}
+else if (!_loans.Any())
+{
+    <p class="muted">No applications yet.</p>
+}
+else
+{
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Applicant</th>
+                <th class="num">Amount</th>
+                <th class="num">Score</th>
+                <th>Status</th>
+                <th>Created</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var l in _loans)
+            {
+                <tr>
+                    <td>@l.ApplicantName</td>
+                    <td class="num">@l.LoanAmount.ToString("N2")</td>
+                    <td class="num">@l.CreditScore</td>
+                    <td><span class="badge badge-@l.Status.ToString().ToLower()">@l.Status</span></td>
+                    <td>@l.CreatedDate.ToLocalTime().ToString("yyyy-MM-dd")</td>
+                    <td>
+                        <button class="btn btn-sm"
+                                disabled="@(_busy == l.Id)"
+                                @onclick="() => Evaluate(l.Id)">
+                            @(_busy == l.Id ? "…" : "Evaluate")
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (_decision is not null)
+{
+    <div class="alert alert-info">
+        <strong>Loan #@_decision.LoanId:</strong> @_decision.Status — @_decision.Reason
+    </div>
+}
+
+@code {
+    List<LoanDto> _loans = new();
+    bool _loading = true;
+    string? _error;
+    int? _busy;
+    LoanEvaluationResultDto? _decision;
+
+    protected override async Task OnInitializedAsync() => await Load();
+
+    async Task Load()
+    {
+        _loading = true; _error = null;
+        try { _loans = await Api.GetLoansAsync(); }
+        catch (Exception ex) { _error = ex.Message; }
+        finally { _loading = false; }
+    }
+
+    async Task Evaluate(int id)
+    {
+        _busy = id; _decision = null;
+        try { _decision = await Api.EvaluateAsync(id); await Load(); }
+        catch (Exception ex) { _error = ex.Message; }
+        finally { _busy = null; }
+    }
+}

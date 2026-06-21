@@ -1,0 +1,14 @@
+@inherits LayoutComponentBase
+@inject TokenStore Store
+
+<div class="page">
+    <KFHAssessment.Client.Layout.NavMenu />
+    <main class="content">@Body</main>
+</div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await Store.InitAsync();
+    }
+}

@@ -1,0 +1,11 @@
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Client\obj\Debug\net8.0\staticwebassets.build.json
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Client\obj\Debug\net8.0\staticwebassets.build.json
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Client\obj\Debug\net8.0\staticwebassets.build.json
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Client\obj\Debug\net8.0\staticwebassets.build.json
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Client\obj\Debug\net8.0\staticwebassets.build.json
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Client\obj\Debug\net8.0\staticwebassets.build.json
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Client\obj\Debug\net8.0\staticwebassets.build.json
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Client\obj\Debug\net8.0\staticwebassets.build.json
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Client\obj\Debug\net8.0\staticwebassets.build.json
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Client\obj\Debug\net8.0\staticwebassets.build.json
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Client\obj\Debug\net8.0\staticwebassets.build.json

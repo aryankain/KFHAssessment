@@ -1,0 +1,63 @@
+@inject TokenStore Store
+@inject AppAuthStateProvider Auth
+@inject NavigationManager Nav
+@implements IAsyncDisposable
+
+<nav class="top-nav">
+    <div class="brand">
+        <span class="brand-mark">KFH</span>
+        <span class="brand-text">Loan Management</span>
+    </div>
+
+    @if (_isAuthenticated)
+    {
+        <div class="nav-links">
+            <NavLink href="" Match="NavLinkMatch.All">Applications</NavLink>
+        </div>
+        <div class="nav-user">
+            <span>@_username (@_role)</span>
+            <button class="btn btn-sm" @onclick="Logout">Sign Out</button>
+        </div>
+    }
+</nav>
+
+@code {
+    bool _isAuthenticated;
+    string? _username;
+    string? _role;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Store.InitAsync();
+        UpdateState();
+
+        Auth.AuthenticationStateChanged += OnAuthStateChanged;
+    }
+
+    private void UpdateState()
+    {
+        _isAuthenticated = Store.IsAuthenticated;
+        _username = Store.Username;
+        _role = Store.Role;
+    }
+
+    private async void OnAuthStateChanged(Task<AuthenticationState> task)
+    {
+        await Store.InitAsync();
+        UpdateState();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    async Task Logout()
+    {
+        await Store.ClearAsync();
+        Auth.Notify();
+        Nav.NavigateTo("/login");
+    }
+
+    public ValueTask DisposeAsync()
+    {
+        Auth.AuthenticationStateChanged -= OnAuthStateChanged;
+        return ValueTask.CompletedTask;
+    }
+}

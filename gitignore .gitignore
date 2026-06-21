@@ -1,0 +1,73 @@
+# Visual Studio / .NET / Blazor common ignores
+
+# Build outputs
+[Bb]in/
+[Oo]bj/
+**/[Bb]in/
+**/[Oo]bj/
+
+# Visual Studio workspace
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln.cache
+
+# Rider / JetBrains
+.idea/
+
+# VS Code
+.vscode/
+
+# NuGet
+packages/
+*.nupkg
+project.lock.json
+
+# Publish output
+publish/
+*/publish/
+*.Publish.xml
+
+# Runtime / compiled files
+*.dll
+*.exe
+*.pdb
+*.xml
+*.cache
+*.ilk
+*.log
+
+# Database files
+*.mdf
+*.ldf
+*.sqlite
+*.db
+
+# ASP.NET Core / app secrets / env
+# keep secrets and env files ignored, but include non-development config files (e.g. appsettings.json)
+appsettings.*.Development.json
+appsettings.*.Local
+secrets.json
+.env
+!appsettings.json
+!**/appsettings.json
+!*.config
+!**/*.config
+
+# Node (if used)
+node_modules/
+
+# Test results / coverage
+TestResults/
+*.trx
+coverage/
+*.coverage
+*.coveragexml
+
+# Misc
+*.DS_Store
+Thumbs.db
+*.swp
+.vs/KFHAssessment/FileContentIndex/838992ea-9c1b-443a-bfe4-6772875f7f1c.vsidx

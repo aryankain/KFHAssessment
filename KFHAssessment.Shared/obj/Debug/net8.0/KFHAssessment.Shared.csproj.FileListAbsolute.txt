@@ -1,0 +1,11 @@
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Shared\bin\Debug\net8.0\KFHAssessment.Shared.deps.json
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Shared\bin\Debug\net8.0\KFHAssessment.Shared.dll
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Shared\bin\Debug\net8.0\KFHAssessment.Shared.pdb
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Shared\obj\Debug\net8.0\KFHAssessment.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Shared\obj\Debug\net8.0\KFHAssessment.Shared.AssemblyInfoInputs.cache
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Shared\obj\Debug\net8.0\KFHAssessment.Shared.AssemblyInfo.cs
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Shared\obj\Debug\net8.0\KFHAssessment.Shared.csproj.CoreCompileInputs.cache
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Shared\obj\Debug\net8.0\KFHAssessment.Shared.dll
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Shared\obj\Debug\net8.0\refint\KFHAssessment.Shared.dll
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Shared\obj\Debug\net8.0\KFHAssessment.Shared.pdb
+D:\POC\KFHAssessment\KFHAssessment\KFHAssessment.Shared\obj\Debug\net8.0\ref\KFHAssessment.Shared.dll
