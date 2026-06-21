@@ -1,11 +1,9 @@
-# KFH Loan Management System
-
-Technical Assessment — KFH Bank
+# KFH Loan Management System - Technical Assessment 
 
 ## Tech Stack
 - .NET 8, ASP.NET Core Web API
-- Blazor WebAssembly (Hosted)
-- Entity Framework Core (Code First)
+- Blazor WebAssembly
+- Entity Framework Core
 - SQL Server
 - JWT Authentication
 
@@ -20,7 +18,7 @@ Technical Assessment — KFH Bank
 
 ### Prerequisites
 - .NET 8 SDK
-- SQL Server (any edition)
+- SQL Server
 - Visual Studio 2022
 
 ### Steps
@@ -28,7 +26,7 @@ Technical Assessment — KFH Bank
 2. Update connection string in `KFHAssessment.Server/appsettings.json`
 3. In Package Manager Console (KFHAssessment.Server selected):
 4. Set KFHAssessment.Server as startup project
-5. Press F5
+
 
 ### Default Login
 - Username: `admin`
@@ -38,14 +36,10 @@ Technical Assessment — KFH Bank
 | Condition | Decision |
 |---|---|
 | Score >= 700 AND Amount <= 50,000 | Approved |
-| Score 650–699 AND Amount <= 20,000 | Approved (mid-tier) |
+| Score 650–699 AND Amount <= 20,000 | Approved (mid-level) |
 | Everything else | Rejected |
 
 ## Assumptions
-- JWT stored in localStorage for session persistence
-- Users table added beyond base requirements to support auth
-- AuditLogs table tracks all loan create/evaluate actions
 - SQL schema is in `schema.sql`
 - SQL queries for last is in `queries.sql`
 
-## Architecture
