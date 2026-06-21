@@ -1,6 +1,6 @@
 # KFH Loan Management System
 
-Senior .NET Developer Technical Assessment — KFH Bank
+Technical Assessment — KFH Bank
 
 ## Tech Stack
 - .NET 8, ASP.NET Core Web API
