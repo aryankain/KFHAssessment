@@ -52,7 +52,6 @@
     }
     else
     {
-        <!-- Show evaluation result after submit -->
         <div class="result-card">
             <div class="result-icon @(_result.Status == LoanStatus.Approved ? "approved" : "rejected")">
                 @(_result.Status == LoanStatus.Approved ? "✓" : "✗")
