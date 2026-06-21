@@ -45,6 +45,7 @@ Senior .NET Developer Technical Assessment — KFH Bank
 - JWT stored in localStorage for session persistence
 - Users table added beyond base requirements to support auth
 - AuditLogs table tracks all loan create/evaluate actions
-- SQL queries for Part 3 are in `/sql/02_queries.sql`
+- SQL schema is in `schema.sql`
+- SQL queries for last is in `queries.sql`
 
 ## Architecture
